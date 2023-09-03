@@ -100,7 +100,7 @@
                                                 <a (click)="deleteTask(item.id)" class="fa fa-times"></a>
                                                 <a (click)="editTask(item.id)" class="fa fa-pencil"
                                                 data-toggle="modal" data-target="#modalEditar"></a>
-                                                <a (click)="listTask()" class="fa fa-check"></a>
+                                                <a (click)="listTask(item.id)" class="fa fa-check"></a>
                                             </label>
                                             <label *ngIf="item.checked == false">
                                                 <input type="checkbox"><i
@@ -108,7 +108,7 @@
                                                 <a (click)="deleteTask(item.id)" class="fa fa-times"></a>
                                                 <a (click)="editTask(item.id)" class="fa fa-pencil"
                                                 data-toggle="modal" data-target="#modalEditar"></a>
-                                                <a (click)="listTask()" class="fa fa-check"></a>
+                                                <a (click)="listTask(item.id)" class="fa fa-check"></a>
                                             </label>
                                         </li>
                                     </ul>

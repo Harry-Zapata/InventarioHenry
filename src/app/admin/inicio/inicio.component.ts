@@ -25,6 +25,10 @@ export class InicioComponent {
     { id: "5", description: "Creating component page", checked: true },
   ];
   
+  historialList: any[] = [
+    
+  ]
+
   addTask() {
     if (this.miFormulario.valid) {
       let object = {
@@ -55,8 +59,7 @@ export class InicioComponent {
   }
   editarMensaje() {
     if (this.editarFormulario.valid) {
-      this.list[this.idEditar].description = this.editarFormulario.value.mensaje
-      console.log(this.list);
+      this.editarFormulario.value.mensaje ? this.list[this.idEditar-1].description = this.editarFormulario.value.mensaje : null;
       this.tostr.success("Mensaje editado correctamente", "Exito")
       this.cerrarModal("modalEditar")
     }else {
@@ -70,7 +73,12 @@ export class InicioComponent {
       this.tostr.warning("Tarea eliminada", "Exito")
     }
   }
-  listTask() {
-
+  listTask(id:any) {
+    const indice = this.list.findIndex(item => item.id === id);
+    let tarea = this.list[indice]
+    this.list.splice(indice, 1);
+    this.historialList.push(tarea);
+    console.log(this.historialList);
+    
   }
 }
