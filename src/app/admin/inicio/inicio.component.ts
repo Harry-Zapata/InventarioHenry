@@ -17,6 +17,7 @@ export class InicioComponent {
   })
   
   idEditar!: any;
+  
   list: any[] = [
     { id: "1", description: "Conveniently fabricate interactive technology for ....", checked: false },
     { id: "2", description: "Creating component page", checked: false },
@@ -51,6 +52,7 @@ export class InicioComponent {
     }
     let Vmodal = document.getElementsByClassName("modal-backdrop fade show")[0];
     Vmodal.remove()
+    this.editarFormulario.controls['mensaje'].setValue("")
   }
   editTask(id: any) {
     const indice = this.list.findIndex(item => item.id === id);

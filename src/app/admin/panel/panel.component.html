@@ -7,10 +7,28 @@
         </li>
 
         <li>
-          <a routerLink="productos"><i class="menu-icon fa fa-money"></i>Vender </a>
+          <a routerLink="usuarios"><i class="menu-icon fa fa-home"></i>Usuarios </a>
         </li>
 
+        <li class="menu-item-has-children dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="menu-icon fa fa-folder-open"></i>Almacen</a>
+          <ul class="sub-menu children dropdown-menu">
+            <li>
+              <i class="fa fa-tags"></i><a routerLink="productos">Productos</a>
+            </li>
+            <li>
+              <i class="fa fa-sitemap"></i><a routerLink="entradas">Stock Entradas</a>
+            </li>
+            <li>
+              <i class="fa fa-id-card-o"></i><a routerLink="salidas">Stock Salidas</a>
+            </li>
+          </ul>
+        </li>
 
+        <li>
+          <a routerLink="categorias"><i class="menu-icon fa fa-home"></i>Categorias</a>
+        </li>
         <!-- Routers -->
         <!-- <li>
             <a href="index.html"><i class="menu-icon fa fa-money"></i>Vender </a>

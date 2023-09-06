@@ -4,6 +4,10 @@ import { LoginComponent } from './auth/login/login.component';
 import { PanelComponent } from './admin/panel/panel.component';
 import { InicioComponent } from './admin/inicio/inicio.component';
 import { ProductosComponent } from './admin/productos/productos.component';
+import { UsuariosComponent } from './admin/usuarios/usuarios.component';
+import { EntradasComponent } from './admin/entradas/entradas.component';
+import { SalidasComponent } from './admin/salidas/salidas.component';
+import { CategoriasComponent } from './admin/categorias/categorias.component';
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
@@ -12,8 +16,14 @@ const routes: Routes = [
   children:[
     {path:'',component: InicioComponent},
     {path:'inicio',component: InicioComponent},
-    {path:'productos',component: ProductosComponent}
+    {path:'productos',component: ProductosComponent},
+    {path:'usuarios',component: UsuariosComponent},
+    {path:'entradas',component:EntradasComponent},
+    {path:'salidas',component:SalidasComponent},
+    {path:'categorias',component:CategoriasComponent},
+    {path:'**',redirectTo:'inicio',pathMatch:'full'}
   ]},
+  {path:'**',redirectTo:'login',pathMatch:'full'}
 ];
 
 @NgModule({
