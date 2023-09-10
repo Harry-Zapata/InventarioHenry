@@ -83,8 +83,6 @@
                         <div>
                             <button class="btn btn-success mr-2" data-toggle="modal" data-target="#modalAgregar"><i
                                     class="fa fa-plus"></i>Agregar</button>
-                            <button class="btn btn-warning" data-toggle="modal" data-target="#modalHistorial"><i
-                                    class="fa fa-archive"></i>Historial</button>
                         </div>
                     </div>
                     <div class="card-content">
@@ -94,22 +92,15 @@
                                     <ul>
                                         <li *ngFor="let item of list">
                                             <!-- checked -->
-                                            <label *ngIf="item.checked == true">
-                                                <input type="checkbox" checked><i
+                                            <label [style]="item.checked ? 'text-decoration: line-through;' : ''">
+                                                <i
                                                     class="check-box"></i><span>{{item.description}}</span>
-                                                <a (click)="deleteTask(item.id)" class="fa fa-times"></a>
-                                                <a (click)="editTask(item.id)" class="fa fa-pencil"
-                                                data-toggle="modal" data-target="#modalEditar"></a>
-                                                <a (click)="listTask(item.id)" class="fa fa-check"></a>
+                                                <a (click)="deleteTask(item._id)" class="fa fa-times"></a>
+                                                <a (click)="editTask(item._id)" class="fa fa-pencil" data-toggle="modal"
+                                                    data-target="#modalEditar"></a>
+                                                <a (click)="listTask(item._id, item.checked)" class="fa fa-check"></a>
                                             </label>
-                                            <label *ngIf="item.checked == false">
-                                                <input type="checkbox"><i
-                                                    class="check-box"></i><span>{{item.description}}</span>
-                                                <a (click)="deleteTask(item.id)" class="fa fa-times"></a>
-                                                <a (click)="editTask(item.id)" class="fa fa-pencil"
-                                                data-toggle="modal" data-target="#modalEditar"></a>
-                                                <a (click)="listTask(item.id)" class="fa fa-check"></a>
-                                            </label>
+
                                         </li>
                                     </ul>
                                 </div>
@@ -138,8 +129,8 @@
                 <form [formGroup]="miFormulario">
                     <div class="form-group">
                         <label for="mensaje" class=" form-control-label">Mensaje</label>
-                        <input type="text" id="mensaje"
-                            placeholder="Insertar Mensaje" class="form-control" formControlName="mensaje">
+                        <input type="text" id="mensaje" placeholder="Insertar Mensaje" class="form-control"
+                            formControlName="mensaje">
                     </div>
                 </form>
             </div>
@@ -147,36 +138,6 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 <button type="button" class="btn btn-success" (click)="addTask()">Agregar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="modalHistorial" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel"
-    style="display: none;" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="largeModalLabel">Large Modal</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>
-                    There are three species of zebras: the plains zebra, the mountain zebra and the Grévy's zebra. The
-                    plains
-                    zebra
-                    and the mountain zebra belong to the subgenus Hippotigris, but Grévy's zebra is the sole species of
-                    subgenus
-                    Dolichohippus. The latter resembles an ass, to which it is closely related, while the former two are
-                    more
-                    horse-like. All three belong to the genus Equus, along with other living equids.
-                </p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary">Confirm</button>
             </div>
         </div>
     </div>
@@ -196,8 +157,8 @@
                 <form [formGroup]="editarFormulario">
                     <div class="form-group">
                         <label for="mensaje" class=" form-control-label">Mensaje</label>
-                        <input type="text" id="mensaje"
-                            placeholder="Insertar Mensaje" class="form-control" formControlName="mensaje">
+                        <input type="text" id="mensaje" placeholder="Insertar Mensaje" class="form-control"
+                            formControlName="mensaje">
                     </div>
                 </form>
             </div>

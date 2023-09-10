@@ -8,11 +8,12 @@ import { UsuariosComponent } from './admin/usuarios/usuarios.component';
 import { EntradasComponent } from './admin/entradas/entradas.component';
 import { SalidasComponent } from './admin/salidas/salidas.component';
 import { CategoriasComponent } from './admin/categorias/categorias.component';
+import { loginGuard } from './shared/guard/login.guard';
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
   {path:'login', component: LoginComponent},
-  {path:'admin',component: PanelComponent,
+  {path:'admin',component: PanelComponent, canActivate:[loginGuard],
   children:[
     {path:'',component: InicioComponent},
     {path:'inicio',component: InicioComponent},

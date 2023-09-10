@@ -9,6 +9,8 @@ import { AdminModule } from './admin/admin.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { InterceptorInterceptor } from './shared/interceptor/interceptor.interceptor';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,13 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule, // Importante: asegúrate de importar BrowserAnimationsModule
     ToastrModule.forRoot() // Configuración global de Toastr
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

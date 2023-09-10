@@ -9,7 +9,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { EntradasComponent } from './entradas/entradas.component';
 import { SalidasComponent } from './salidas/salidas.component';
 import { CategoriasComponent } from './categorias/categorias.component';
-
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -24,7 +24,8 @@ import { CategoriasComponent } from './categorias/categorias.component';
   imports: [
     CommonModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [
     PanelComponent,
