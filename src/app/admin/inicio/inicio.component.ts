@@ -20,6 +20,7 @@ export class InicioComponent implements OnInit {
     this.mensajeSrv.getMensajes().subscribe(
       data => {
         this.list = data;
+        console.log(this.list);
       })
   }
   miFormulario = new FormGroup({
@@ -84,12 +85,14 @@ export class InicioComponent implements OnInit {
   }
   cerrarModal(id: string) {
     let modal = document.getElementById(id);
+    let body = document.getElementsByTagName('body')[0];
     if (modal != null) {
       modal.removeAttribute('style');
       modal.style.display = "none";
     }
     let Vmodal = document.getElementsByClassName("modal-backdrop fade show")[0];
     Vmodal.remove()
+    body.classList.remove("modal-open");
     this.editarFormulario.controls['mensaje'].setValue("")
   }
 }

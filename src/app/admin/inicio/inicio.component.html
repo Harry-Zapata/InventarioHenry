@@ -89,7 +89,7 @@
                         <div class="todo-list">
                             <div class="tdl-holder">
                                 <div class="tdl-content">
-                                    <ul>
+                                    <ul *ngIf="list.leng!=0">
                                         <li *ngFor="let item of list">
                                             <!-- checked -->
                                             <label [style]="item.checked ? 'text-decoration: line-through;' : ''">
@@ -100,8 +100,8 @@
                                                     data-target="#modalEditar"></a>
                                                 <a (click)="listTask(item._id, item.checked)" class="fa fa-check"></a>
                                             </label>
-
                                         </li>
+                                        <label class="text-center" *ngIf="list.length == 0">No hay tareas para mostrar</label>
                                     </ul>
                                 </div>
                             </div>
