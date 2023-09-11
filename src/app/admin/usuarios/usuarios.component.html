@@ -10,19 +10,19 @@
                     <tr>
                         <th class="serial">#</th>
                         <th>Nombre</th>
-                        <th>Usuario</th>
-                        <th>Perfil</th>
-                        <th>email</th>
+                        <th>Email</th>
+                        <th>Direccion</th>
+                        <th>Phone</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="serial">1.</td>
-                        <td><span class="name">Henry Herrera</span> </td>
-                        <td><span class="user">admin</span> </td>
-                        <td><span class="role">Administrador</span></td>
-                        <td><span class="email text-lowercase">admin@gmail.com</span></td>
+                    <tr *ngFor="let item of users; let i = index">
+                        <td class="serial">{{i+1}}</td>
+                        <td><span class="name">{{item.name}}</span> </td>
+                        <td><span class="email text-lowercase">{{item.email}}</span> </td>
+                        <td><span class="address">{{item.address}}</span></td>
+                        <td><span class="phone">{{item.phone}}</span></td>
                         <td>
                             <button class="btn btn-success"><i class="fa fa-pencil"></i></button>
                             <button class="btn btn-danger"><i class="fa fa-times"></i></button>

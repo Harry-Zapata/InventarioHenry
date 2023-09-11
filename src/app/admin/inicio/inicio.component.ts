@@ -20,7 +20,7 @@ export class InicioComponent implements OnInit {
     this.mensajeSrv.getMensajes().subscribe(
       data => {
         this.list = data;
-        console.log(this.list);
+        //console.log(this.list);
       })
   }
   miFormulario = new FormGroup({

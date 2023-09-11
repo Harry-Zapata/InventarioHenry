@@ -6,7 +6,7 @@
           <a routerLink="inicio"><i class="menu-icon fa fa-home"></i>Inicio </a>
         </li>
 
-        <li>
+        <li *ngIf="user?.role=='admin'">
           <a routerLink="usuarios"><i class="menu-icon fa fa-users"></i>Usuarios </a>
         </li>
 
@@ -59,9 +59,9 @@
 
           <div class="user-menu dropdown-menu">
 
-            <a class="nav-link" href="#"><i class="fa fa-cog"></i>Settings</a>
+            <a class="nav-link" routerLink="usuarios"><i class="fa fa-cog"></i>Settings</a>
 
-            <a class="nav-link" href="#"><i class="fa fa-power-off"></i>Logout</a>
+            <a class="nav-link cursor-pointer" (click)="Logout()" routerLink=""><i class="fa fa-power-off"></i>Logout</a>
           </div>
         </div>
       </div>

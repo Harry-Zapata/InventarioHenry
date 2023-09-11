@@ -9,6 +9,7 @@ import { EntradasComponent } from './admin/entradas/entradas.component';
 import { SalidasComponent } from './admin/salidas/salidas.component';
 import { CategoriasComponent } from './admin/categorias/categorias.component';
 import { loginGuard } from './shared/guard/login.guard';
+import { usersGuard } from './shared/guard/users.guard';
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
@@ -18,7 +19,7 @@ const routes: Routes = [
     {path:'',component: InicioComponent},
     {path:'inicio',component: InicioComponent},
     {path:'productos',component: ProductosComponent},
-    {path:'usuarios',component: UsuariosComponent},
+    {path:'usuarios',component: UsuariosComponent,canActivate:[usersGuard],},
     {path:'entradas',component:EntradasComponent},
     {path:'salidas',component:SalidasComponent},
     {path:'categorias',component:CategoriasComponent},
